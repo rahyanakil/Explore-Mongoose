@@ -6,8 +6,9 @@ let server: Server;
 const PORT = 5000;
 async function main() {
   try {
-    // await mongoose.connect('mongodb+srv://rahyanakil89:4zPNcGHtim7JBIvF@cluster0.hvppqd2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
-    // await mongoose.connect('mongodb+srv://rahyanakil89:4zPNcGHtim7JBIvF@cluster0.hvppqd2.mongodb.net/advance-Note-App?retryWrites=true&w=majority&appName=Cluster0')
+    //connect to mongodb compass locally
+    //  await mongoose.connect("mongodb://127.0.0.1:27017/your-database-name");
+
     await mongoose.connect(
       "mongodb+srv://rahyanakil89:4zPNcGHtim7JBIvF@cluster0.hvppqd2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     );
