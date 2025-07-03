@@ -39,7 +39,6 @@ notesRoutes.get("/:id", async (req: Request, res: Response) => {
     note,
   });
 });
-
 notesRoutes.put("/updated-note/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   const updatedBody = req.body;
