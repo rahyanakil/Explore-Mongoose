@@ -10,7 +10,7 @@ async function main() {
     //  await mongoose.connect("mongodb://127.0.0.1:27017/your-database-name");
 
     await mongoose.connect(
-      "mongodb+srv://rahyanakil89:4zPNcGHtim7JBIvF@cluster0.hvppqd2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+      "mongodb+srv://rahyanakil89:4zPNcGHtim7JBIvF@cluster0.hvppqd2.mongodb.net/AdvancedNoteApp?retryWrites=true&w=majority&appName=Cluster0"
     );
 
     console.log("connected to mongodb");
