@@ -3,6 +3,7 @@ import express,{ Request, Response } from "express";
 import { Note } from "../models/notes.model";
 
 export const notesRoutes =express.Router()
+//create note 
 notesRoutes.post("/create-note", async (req: Request, res: Response) => {
   const body = req.body;
 
@@ -25,7 +26,7 @@ notesRoutes.post("/create-note", async (req: Request, res: Response) => {
 });
 notesRoutes.get("/", async (req: Request, res: Response) => {
   const notes = await Note.find();
-  res.status(200).json({
+  res.status(201).json({
     success: true,
     message: "All notes fetched successfully",
     notes,
