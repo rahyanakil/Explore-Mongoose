@@ -2,6 +2,13 @@ import { model, Schema } from "mongoose";
 import { IUser } from "../interfaces/user.interface";
 import validator from "validator";
 
+// Define addressSchema or import it if defined elsewhere
+const addressSchema = new Schema({
+    street: { type: String, required: true },
+    city: { type: String, required: true },
+    country: { type: String, required: true }
+});
+
 const userSchema =new Schema<IUser>({
     firstName:{
             type:String,
@@ -43,13 +50,16 @@ const userSchema =new Schema<IUser>({
         type:String,
         required:true
     },
-    role:{
-        type:String,
-        enum:{
-            values:['USER','ADMIN','SUPERADMIN'],
-            message:"Role is not valid. got {VALUE} role"
-        },
-        default:'user'
+    role: {
+        type: String,
+        required: true
+    },
+    address: {
+        type: addressSchema,
     }
-})
-export const User =model("User",userSchema)
+},
+{
+    versionKey: false,
+    timestamps: true,
+});
+export const User = model("User", userSchema);

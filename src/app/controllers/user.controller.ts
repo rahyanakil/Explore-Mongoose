@@ -17,7 +17,7 @@ userRoutes.post("/create-user",async(req:Request,res:Response)=>{
 try{
 
  const body =await createUserZodSchema.parseAsync(req.body);
-//  const user =await User.create(body)
+ const user =await User.create(body)
 console.log(body,"zod body");
 
 

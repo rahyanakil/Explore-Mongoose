@@ -16,8 +16,14 @@ const noteSchema = new Schema({
     type: Boolean,
     default: false,
   },
+   userId:{
+        type:Schema.Types.ObjectId,
+        ref:"User",
+        require:true
+    }
+
 },{
-  versionkey:false,
+  versionKey:false,
   timestamps:true
 });
 //model
