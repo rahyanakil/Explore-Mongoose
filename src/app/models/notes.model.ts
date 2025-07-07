@@ -16,6 +16,9 @@ const noteSchema = new Schema({
     type: Boolean,
     default: false,
   },
+},{
+  versionkey:false,
+  timestamps:true
 });
 //model
 export const Note = model("Note", noteSchema);
