@@ -19,13 +19,9 @@ try{
 
 //  const body =await createUserZodSchema.parseAsync(req.body);
 
-const body =req.body;
-
 // const password =await bcrypt.hash(body.password,10)
 
 //   body.password =password
-// const user =await User.create(body)// static method
-
 
 //built in custom instance method 
 
@@ -34,14 +30,18 @@ const body =req.body;
 // console.log(password)
 // user.password =password as string
 //  await user.save()//instance method 
+const  body =req.body;
+//built in custom static methods
+const password = await User.hashpassword(body.password)
+console.log(password,"static");
+body.password=password
 
-//console.log(body,"zod body");
-
+const user =await User.create(body)
 
  res.status(201).json({
     success:true,
     message:"user created successfully",
-    user
+    user:user
  })
 }
 catch(error:any){
@@ -93,8 +93,8 @@ userRoutes.put("/updated-user/:id", async (req: Request, res: Response) =>{
 
 
 userRoutes.delete("/delete-user/:id",async(req:Request,res:Response)=>{
-    const {id} =req.params;
-    const deletedUser =await User.findByIdAndDelete(id)
+    const {id} = req.params;
+    const deletedUser = await User.findByIdAndDelete(id);
     res.status(201).json({
         success:true,
         message:"The user is deleted",
