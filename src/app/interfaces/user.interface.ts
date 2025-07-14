@@ -16,6 +16,12 @@ export interface IUser {
 }
 //for dynamic instance methods
 export interface UserInstanceMethods {
+    findOneAndDelete(arg0: { _id: string; }): unknown;
+    findByIdAndDelete(id: string): unknown;
+    findByIdAndUpdate(id: string, updatedUserBody: any, arg2: { new: boolean; runValidators: boolean }): unknown
+    findOne(): unknown
+    find(): unknown
+    create(body: any): unknown
     hashpassword(password:string):string
 }
 //for static methods

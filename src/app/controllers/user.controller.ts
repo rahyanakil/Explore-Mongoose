@@ -14,7 +14,7 @@ const createUserZodSchema = z.object({
 //create user
 userRoutes.post("/create-user", async (req: Request, res: Response) => {
   try {
-    //  const body =await createUserZodSchema.parseAsync(req.body);
+     const body =await createUserZodSchema.parseAsync(req.body);
 
     // const password =await bcrypt.hash(body.password,10)
 
@@ -27,7 +27,7 @@ userRoutes.post("/create-user", async (req: Request, res: Response) => {
     // console.log(password)
     // user.password =password as string
     //  await user.save()//instance method
-    const body = req.body;
+    // const body = req.body;
     //built in custom static methods
     // const password = await User.hashpassword(body.password)
     // console.log(password,"static");
@@ -61,7 +61,7 @@ userRoutes.get("/", async (req: Request, res: Response) => {
 });
 
 //find a user
-userRoutes.get("/:id", async (req: Request, res: Response) => {
+userRoutes.get("/:userId", async (req: Request, res: Response) => {
   const user = await User.findOne();
   res.status(201).json({
     success: true,
@@ -84,9 +84,9 @@ userRoutes.put("/updated-user/:id", async (req: Request, res: Response) => {
   });
 });
 
-userRoutes.delete("/delete-user/:id", async (req: Request, res: Response) => {
+userRoutes.delete("/:userId", async (req: Request, res: Response) => {
   const userId = req.params.userId;
-  //   const deletedUser = await User.findByIdAndDelete(id);
+    // const user = await User.findOneAndDelete({_id:userId});
   const user = await User.findOneAndDelete({ _id: userId });
   res.status(201).json({
     success: true,
